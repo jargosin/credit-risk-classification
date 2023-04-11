@@ -1,31 +1,35 @@
-# Module 12 Report Template
+# Module 12 Report
 
 ## Overview of the Analysis
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+* The purpose of the analysis is to create a regression model that can accutately predict whether a loan is healthy (0) or high-risk (1).
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+* The data contains various account details that factor into credit risk. This includes loan size, income, total debt and number of accounts. Using these factors, we will be able to determine whether or not any given account is suitable for a loan or deemed high-risk
+
+* There are 75,036 healthy loans, and 2,500 high-risk loans in this dataset.
+
+* First, we split the data into training and testing datasets. We then fit the logistic regression model to predict and compare the results. After, we perform a classification report to evaluate the precision of the model. We do these steps again but with the RandomOverSampler module to see if the model performance improves.
+
+* Logistic regression utilizes financial account variables to predict wheather a loan is considered healthy or high-risk. 
 
 ## Results
 
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
-
 * Machine Learning Model 1:
-  * Description of Model 1 Accuracy, Precision, and Recall scores.
+  * Model 1 accuracy was 95.20%, with a precision score of 100% for healthy loans and 85% for high-risk loans.
+  
+              precision    recall  f1-score   support
 
-
+           0       1.00      0.99      1.00     18765
+           1       0.85      0.91      0.88       619
 
 * Machine Learning Model 2:
-  * Description of Model 2 Accuracy, Precision, and Recall scores.
+  * Model 2 accuracy was 99.36%, with a precision score of 100% for healthy loans and 84% for high-risk loans. 
+  
+               precision    recall  f1-score   support
+
+           0       1.00      0.99      1.00     18765
+           1       0.84      0.99      0.91       619
 
 ## Summary
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+* Both models preformed with excellent precision, and differences between them are marginal but are definetly worth comparing. When trying to achieve higher overall accuracy model 2 is favorable, but for slightly higher precision for high-risk loans, model 1 performs better.
